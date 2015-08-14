@@ -1,0 +1,23 @@
+{
+  "name": "Radio",
+  "version": "0.0.0",
+  "authors": [
+    "KON Yuichi <konpyu@gmail.com>"
+  ],
+  "description": "reporduce shibuya",
+  "keywords": [
+    "podcast"
+  ],
+  "license": "Apache 2.0",
+  "homepage": "http://www.radio.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "semantic-ui": "2.0.7"
+  },
+  "devDependencies": {}
+}
+
