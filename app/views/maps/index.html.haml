@@ -1,0 +1,101 @@
+.container(role="main")
+  %h4
+    maps
+  %a.btn.btn-info#sby-map-create-button{ "data-toggle" => "modal", "data-target" => "#sby-map-create-modal"}
+    Create New Map
+  %table.table
+    %thead
+      %tr
+        %th id
+        %th name
+        %th unit-x
+        %th unit-y
+        %th date
+        %th auther
+        %th
+        %th
+        %th
+    %tbody
+      - @maps.each do |map|
+        %tr
+          %td.col-md-1
+            = map.id
+          %td.col-md-3
+            = map.name
+          %td.col-md-1
+            = map.width_tiles
+          %td.col-md-1
+            = map.height_tiles
+          %td.col-md-2
+            = l(map.created_at, format: :long)
+          %td.col-md-1
+            Guest
+          %td.col-md-1
+            %a.btn.btn-success{ "data-height-tiles" => "#{map.height_tiles}", "data-width-tiles" => "#{map.width_tiles}", "data-name" => "#{map.name}", "data-map-id" => "#{map.id}", "data-toggle" => "modal", "data-target" => "#sby-map-edit-modal"}
+              edit
+          %td.col-md-1
+            = link_to 'delete', map_path(map.id), class: "btn btn-danger", id: "sby-map" , remote: true, method: :delete, data: { confirm: 'Delete OK?' }
+          %td.col-md-1
+            %a.btn.btn-default
+              preview
+
+/ TODO DRY
+.modal#sby-map-edit-modal
+  .modal-dialog.modal-lg(role="document")
+    .modal-content(style="padding:20px")
+      %h3
+        Edit Map
+
+      = form_tag maps_path, method: :put, id: "sby-map-form" do |f|
+        .row
+          .col-md-12
+            .form-group
+              = label_tag :name
+              = text_field_tag :name, nil, id: "sby-map-edit-name", placeholder: 'Input Map Name', class: 'form-control'
+        .row
+          .col-md-6
+            .form-group
+              = label_tag :width_tiles
+              = select_tag :width_tiles, options_for_select((3..150).to_a), id: "sby-map-width-tiles", class: 'form-control', default: 20
+
+          .col-md-6
+            .form-group
+              = label_tag :height_tiles
+              = select_tag :height_tiles, options_for_select((3..150).to_a), id: "sby-map-height-tiles", class: 'form-control', default: 20
+
+        .row
+          .col-md-12
+            = submit_tag 'submit', class: 'btn btn-info', data: { disable_with: "submitting..." }
+
+
+/ TODO DRY
+.modal#sby-map-create-modal
+  .modal-dialog.modal-lg(role="document")
+    .modal-content(style="padding:20px")
+      %h3
+        Create New Map
+
+      = form_tag maps_path, method: :post do |f|
+        .row
+          .col-md-12
+            .form-group
+              = label_tag :name
+              = text_field_tag :name, nil, placeholder: 'Input Map Name', class: 'form-control'
+        .row
+          .col-md-6
+            .form-group
+              = label_tag :width_tiles
+              = select_tag :width_tiles, options_for_select((3..150).to_a), id: "sby-map-width-tiles", class: 'form-control', default: 20
+
+          .col-md-6
+            .form-group
+              = label_tag :height_tiles
+              = select_tag :height_tiles, options_for_select((3..150).to_a), id: "sby-map-height-tiles", class: 'form-control', default: 20
+
+        .row
+          .col-md-12
+            = submit_tag 'submit', class: 'btn btn-info', data: { disable_with: "submitting..." }
+
+
+:javascript
+  new Maps();

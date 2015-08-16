@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require semantic-ui/dist/semantic
+//= require bootstrap/dist/js/bootstrap
 //= require_tree .
