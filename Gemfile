@@ -8,7 +8,15 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
+gem 'kaminari'
+gem 'carrierwave', '0.10.0'
+gem 'fog'
+gem 'unf'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
+  gem 'rspec', '3.3.0'
+  gem 'rspec-rails', '3.3.3'
+  gem 'factory_girl_rails'
 end
