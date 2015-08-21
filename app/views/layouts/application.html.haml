@@ -16,7 +16,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Shibuya
+          %a.navbar-brand{:href => "/"} Shibuya
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
@@ -31,7 +31,9 @@
                 %li
                   = link_to 'serif', serifs_path
                 %li
-                  = link_to 'mapobjects', mapobjects_path
+                  = link_to 'mapobject', mapobjects_path
+                %li
+                  = link_to 'image', images_path
         / /.nav-collapse
 
     - if flash[:alert].present? 

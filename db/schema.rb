@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20150814071723) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "width",      limit: 4, null: false
-    t.integer  "height",     limit: 4, null: false
+    t.integer  "width",      limit: 4,   null: false
+    t.integer  "height",     limit: 4,   null: false
+    t.integer  "size",       limit: 4
+    t.string   "file_name",  limit: 255
+    t.string   "caption",    limit: 255
     t.integer  "stuff_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -46,8 +49,9 @@ ActiveRecord::Schema.define(version: 20150814071723) do
   end
 
   create_table "mapobjects", force: :cascade do |t|
-    t.boolean  "movable",    limit: 1, default: false
-    t.boolean  "talkable",   limit: 1, default: false
+    t.text     "name",       limit: 65535
+    t.boolean  "movable",    limit: 1,     default: false
+    t.boolean  "talkable",   limit: 1,     default: false
     t.integer  "stuff_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"

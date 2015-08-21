@@ -1,16 +1,14 @@
 namespace :dev do
-  desc "========="
-  task map: :environment do
+  desc "sample data"
+  task sample: :environment do
+    Map.delete_all
     Map.create!(name: "ナンペイダイタウン", stuff_id: 1, width_tiles:120, height_tiles: 100)
     Map.create!(name: "サクラガオカタウン", stuff_id: 1, width_tiles:120, height_tiles: 100)
     Map.create!(name: "ドウゲンザカタウン", stuff_id: 1, width_tiles:120, height_tiles: 100)
     Map.create!(name: "ミヤマスザカタウン", stuff_id: 1, width_tiles:120, height_tiles: 100)
     Map.create!(name: "マルヤマタウン", stuff_id: 1, width_tiles:120, height_tiles: 100)
     Map.create!(name: "光の塔", stuff_id: 1, width_tiles:120, height_tiles: 100)
-  end
 
-  desc "=========---"
-  task serifs: :environment do
     Serif.delete_all
     Serif.create!(text:"あのクソディレクター、企画を決めるのが遅すぎるからすぐ炎上するんだよな。勘弁してほしいわ", stuff_id: 1)
     Serif.create!(text:"合コンしてたら隣にYさんがいてビビったわ〜。マジ狭いすわ〜", stuff_id: 1)
@@ -21,9 +19,7 @@ namespace :dev do
     Serif.create!(text:"いくら最近バブルだからってねえ", stuff_id: 1)
     Serif.create!(text:"最近入った新卒どう?", stuff_id: 1)
     Serif.create!(text:"またクラフトビールの店できたの? もう要らないでしょ", stuff_id: 1)
-  end
-  desc "create sample"
-  task mapobj: :environment do
+
     Mapobject.delete_all
     Mapobject.create!(name: "サイバー社員",      movable: true,  talkable: true )
     Mapobject.create!(name: "第一ほげほげビル",  movable: false, talkable: false)

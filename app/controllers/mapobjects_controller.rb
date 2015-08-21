@@ -4,9 +4,6 @@ class MapobjectsController < ApplicationController
     @mapobjects = Mapobject.all.order(id: :desc)
   end
 
-  def show
-  end
-
   def create
     if request.xhr?
       head :created

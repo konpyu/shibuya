@@ -59,6 +59,19 @@
             .form-group
               = label_tag :movable
               = select_tag :movable, options_for_select([true, false]), id: "sby-mapobject-movable", class: 'form-control', default: 20
+        / TODO: Talkableだったら有効
+        .row
+          .col-md-12
+            .form-group
+              = label_tag :image
+              = select_tag :image, options_for_select(["[stub] not implmenet"]), class:'form-control', default: 20
+
+        .row
+          .col-md-12
+            .form-group
+              = label_tag :serif
+              = select_tag :serif, options_for_select(["[stub] not implmenet"]), class:'form-control', default: 20
+
 
         .row
           .col-md-12

@@ -17,6 +17,10 @@ class CreateBasicTables < ActiveRecord::Migration
     create_table :images do |t|
       t.integer :width,   null: false
       t.integer :height,  null: false
+      t.integer :size
+      t.string  :file_name
+      t.string  :image
+      t.string  :caption
       t.integer :stuff_id
       t.timestamps
     end
