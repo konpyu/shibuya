@@ -1,48 +1,41 @@
 .container(role="main")
   %h4
-    maps
-  %a.btn.btn-info#sby-map-create-button{ "data-toggle" => "modal", "data-target" => "#sby-map-create-modal"}
-    Create New Map
+    Image Upload
+  %a.btn.btn-info#sby-image-create-button{ "data-toggle" => "modal", "data-target" => "#sby-image-create-modal"}
+    Create New Image
 
--#
   %table.table
     %thead
       %tr
         %th id
-        %th name
-        %th unit-x
-        %th unit-y
-        %th date
-        %th auther
+        %th image
+        %th width
+        %th height
         %th
         %th
         %th
     %tbody
-      - @maps.each do |map|
+      - @images.each do |elem|
         %tr
           %td.col-md-1
-            = map.id
+            = elem.id
+          %td.col-md-1
+            = image_tag elem.image_url, style: "width: 32px"
           %td.col-md-3
-            = map.name
+            = elem.width
           %td.col-md-1
-            = map.width_tiles
+            = elem.height
           %td.col-md-1
-            = map.height_tiles
-          %td.col-md-2
-            = l(map.created_at, format: :long)
+            /%a.btn.btn-success{ "data-height-tiles" => "#{image.height_tiles}", "data-width-tiles" => "#{image.width_tiles}", "data-name" => "#{image.name}", "data-image-id" => "#{image.id}", "data-toggle" => "modal", "data-target" => "#sby-image-edit-modal"}
+            edit
           %td.col-md-1
-            Guest
-          %td.col-md-1
-            %a.btn.btn-success{ "data-height-tiles" => "#{map.height_tiles}", "data-width-tiles" => "#{map.width_tiles}", "data-name" => "#{map.name}", "data-map-id" => "#{map.id}", "data-toggle" => "modal", "data-target" => "#sby-map-edit-modal"}
-              edit
-          %td.col-md-1
-            = link_to 'delete', map_path(map.id), class: "btn btn-danger", id: "sby-map" , remote: true, method: :delete, data: { confirm: 'Delete OK?' }
+            /= link_to 'delete', image_path(image.id), class: "btn btn-danger", id: "sby-image" , remote: true, method: :delete, data: { confirm: 'Delete OK?' }
           %td.col-md-1
             %a.btn.btn-default
               preview
 
 / TODO DRY
-.modal#sby-map-create-modal
+.modal#sby-image-create-modal
   .modal-dialog.modal-lg(role="document")
     .modal-content(style="padding:20px")
       %h3
