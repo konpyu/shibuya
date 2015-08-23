@@ -13,6 +13,9 @@ gem 'kaminari'
 gem 'carrierwave', '0.10.0'
 gem 'fog'
 gem 'unf'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug'
