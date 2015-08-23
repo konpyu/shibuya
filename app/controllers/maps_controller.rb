@@ -1,4 +1,5 @@
 class MapsController < ApplicationController
+  before_filter :authenticate!, only: [:create, :destroy, :update]
   def index
     @maps = Map.all.order(id: :desc)
   end

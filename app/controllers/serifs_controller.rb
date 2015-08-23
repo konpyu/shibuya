@@ -1,4 +1,5 @@
 class SerifsController < ApplicationController
+  before_filter :authenticate!, only: [:create, :destroy, :update]
   def index
     @serifs = Serif.all.order(id: :desc)
   end
